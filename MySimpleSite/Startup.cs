@@ -42,6 +42,12 @@ namespace MySimpleSite
                 app.UseHsts();
             }
 
+            app.UseCors(opt =>
+            opt.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            );
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
