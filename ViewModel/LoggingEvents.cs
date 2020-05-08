@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyData
+namespace ViewModel
 {
     public class LoggingEvents
     {
@@ -15,5 +15,6 @@ namespace MyData
 
         public const int GetItemNotFound = 4000;
         public const int UpdateItemNotFound = 4001;
+
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyRepository.Interfaces;
 using Microsoft.Extensions.Logging;
-using MyData;
+using ViewModel;
 
 namespace MySimpleSite.Controllers
 {
@@ -23,17 +23,17 @@ namespace MySimpleSite.Controllers
             _logger = logger.CreateLogger("MyApi.Controllers.MyController");
         }
 
-        [HttpGet("/myget")]
-        public string MyGet()
+        [HttpGet("/myget/name={name}")]
+        public MyName MyGet(string name)
         {
-            _logger.LogInformation(LoggingEvents.GetItem, "Getting name ");
-            var name = $"{_myNameSendler.SendMyName()}";
-            if (name == null)
+            _logger.LogInformation(LoggingEvents.GetItem, $"Getting name {name}");
+            var myname = _myNameSendler.SendMyName(name);
+            if (myname == null)
             {
-                _logger.LogWarning(LoggingEvents.GetItemNotFound, "MyGet() NOT FOUND");
+                _logger.LogWarning(LoggingEvents.GetItemNotFound, "SendMyName(name) NOT FOUND");
                 return null;
             }
-            return name;
+            return myname;
         }
     }
 }

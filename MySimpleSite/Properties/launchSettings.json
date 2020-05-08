@@ -20,7 +20,7 @@
     "MySimpleSite": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/myget",
+      "launchUrl": "/myget/name=IVAN",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -29,7 +29,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/myget",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/myget/name=IVAN",
       "publishAllPorts": true,
       "useSSL": true
     }

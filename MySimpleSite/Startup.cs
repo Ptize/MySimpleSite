@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,8 @@ namespace MySimpleSite
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>(opt => opt.UseNpgsql(Configuration.GetConnectionString("MyDatabaseConnectionString")));
+            
             services.AddScoped<IMyNameSendler, MyNameSendler>();
 
             services.AddControllers();
