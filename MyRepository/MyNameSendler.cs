@@ -12,12 +12,12 @@ namespace MyRepository
         private readonly Context _context;
         public MyNameSendler(ILoggerFactory logger, Context context)
         {
-            _logger = logger.CreateLogger("MyApi.Repositories.MyNameSendler");
+            _logger = logger.CreateLogger($"MyApi.Repositories.MyNameSendler, DateTime:{DateTime.Now}");
             _context = context;
         }
         public MyName SendMyName(string name)
         {
-            _logger.LogInformation(LoggingEvents.GetItem, $"Getting name {name}");
+            _logger.LogInformation(LoggingEvents.GetItem, $"Getting name {name}, DateTime:{DateTime.Now}");
             
             var result = pushName(name);
 
@@ -28,7 +28,7 @@ namespace MyRepository
 
         private MyName pushName(string name)
         {
-            _logger.LogInformation(LoggingEvents.InsertItem, $"Insert name {name}");
+            _logger.LogInformation(LoggingEvents.InsertItem, $"Insert name {name}, DateTime:{DateTime.Now}");
             var myname = new MyName();
             myname.Id = Guid.NewGuid();
             myname.Name = name;
@@ -39,7 +39,7 @@ namespace MyRepository
         }
         private void clearName(MyName myName)
         {
-            _logger.LogInformation(LoggingEvents.DeleteItem, $"Delete name {myName.Name}");
+            _logger.LogInformation(LoggingEvents.DeleteItem, $"Delete name {myName.Name}, DateTime:{DateTime.Now}");
             _context.Names.Remove(myName);
             //_context.SaveChanges();
         }

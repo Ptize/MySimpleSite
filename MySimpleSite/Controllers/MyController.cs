@@ -20,17 +20,17 @@ namespace MySimpleSite.Controllers
                             ILoggerFactory logger)
         {
             _myNameSendler = myNameSendler;
-            _logger = logger.CreateLogger("MyApi.Controllers.MyController");
+            _logger = logger.CreateLogger($"MyApi.Controllers.MyController, DateTime:{DateTime.Now}");
         }
 
         [HttpGet("/myget/name={name}")]
         public MyName MyGet(string name)
         {
-            _logger.LogInformation(LoggingEvents.GetItem, $"Getting name {name}");
+            _logger.LogInformation(LoggingEvents.GetItem, $"Getting name {name}, DateTime:{DateTime.Now}");
             var myname = _myNameSendler.SendMyName(name);
             if (myname == null)
             {
-                _logger.LogWarning(LoggingEvents.GetItemNotFound, "SendMyName(name) NOT FOUND");
+                _logger.LogWarning(LoggingEvents.GetItemNotFound, $"SendMyName(name) NOT FOUND, DateTime:{DateTime.Now}");
                 return null;
             }
             return myname;
