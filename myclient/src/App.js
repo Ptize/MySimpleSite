@@ -8,7 +8,7 @@ import MyName from "./components/MyName.js";
 function App() {
   return (
     <Provider store={store}>
-      <Container maxWidth="lg">
+      <Container>
         <MyName />
       </Container>
     </Provider>

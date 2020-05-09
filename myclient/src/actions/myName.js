@@ -4,8 +4,8 @@ export const ACTION_TYPES = {
     FETCH_NAME: 'FETCH_NAME'
 }
 
-export const fetchMyName = () => dispatch => {
-    api.myName().fetchMyName()
+export const fetchMyName = (name) => dispatch => {
+    api.myName().fetchMyName(name)
         .then(response => {
             dispatch({
                 type: ACTION_TYPES.FETCH_NAME,

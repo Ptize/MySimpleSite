@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -43,7 +44,7 @@ namespace MySimpleSite
             }
 
             app.UseCors(opt =>
-            opt.WithOrigins("http://localhost:3000")
+            opt.WithOrigins(Configuration.GetConnectionString("React"))
             .AllowAnyHeader()
             .AllowAnyMethod()
             );

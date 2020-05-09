@@ -8,7 +8,7 @@ export default {
 
     myName(url = baseUrl + 'myget/') {
         return {
-            fetchMyName: () => axios.get(url + "name=IVAN"),
+            fetchMyName: (name) => axios.get(url + "name="+ name),
         }
     }
 }
